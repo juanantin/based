@@ -18,10 +18,10 @@
      own, regardless of these tags. It and apple-touch-icon.png are generated
      from images/based_logo.png — the Apple one has to be flattened onto white,
      because iOS renders a transparent home-screen icon as black. -->
-<link rel="icon" href="favicon.ico?v=2026-08-29.20" sizes="any">
-<link rel="icon" type="image/png" href="images/based_logo.png?v=2026-08-29.20">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=2026-08-29.20">
-<link rel="manifest" href="site.webmanifest?v=2026-08-29.20">
+<link rel="icon" href="favicon.ico?v=2026-08-29.21" sizes="any">
+<link rel="icon" type="image/png" href="images/based_logo.png?v=2026-08-29.21">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=2026-08-29.21">
+<link rel="manifest" href="site.webmanifest?v=2026-08-29.21">
 
 <!-- Two hand-lettered faces carry the whole design: Gloria Hallelujah for the
      display type, Architects Daughter for everything else. -->
@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Gloria+Hallelujah&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/styles.css?v=2026-08-29.20">
+<link rel="stylesheet" href="assets/css/styles.css?v=2026-08-29.21">
 </head>
 <body>
 
@@ -50,21 +50,26 @@
       <!-- The handle sits under the button, as its caption -->
       <span class="x-wrap">
         <a class="btn btn--icon" id="link-x" href="https://x.com/basedcoin_base" target="_blank" rel="noopener noreferrer" aria-label="BASED COIN on X">
-          <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path fill="currentColor" d="M17.53 3h3.2l-6.99 7.99L22 21h-6.44l-4.72-6.17L5.4 21H2.2l7.48-8.55L2 3h6.6l4.27 5.64L17.53 3Zm-1.12 16.07h1.77L7.68 4.83H5.78l10.63 14.24Z"/>
+          <!-- The X mark, drawn rather than set: one heavier stroke through the
+               middle and a lighter one broken across it, which is what gives the
+               real mark its segmented look. -->
+          <svg class="btn__icon btn__icon--drawn" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 4.1C8.4 7.7 12.6 12.7 19.4 20.3" stroke-width="2.5"/>
+            <path d="M18.9 4.2C16.6 6.9 14.2 9.5 12.1 11.8"/>
+            <path d="M10.6 13.4C8.5 15.7 6.4 17.9 4.5 19.8"/>
           </svg>
         </a>
         <span class="x-handle" id="x-handle">@basedcoin_base</span>
       </span>
 
-      <a class="btn" id="link-chart" href="#" target="_blank" rel="noopener noreferrer">
-        <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path fill="currentColor" d="M4 20h16v1.6H2.4V2.4H4V20Z"/>
-          <rect x="6.4" y="12" width="2.8" height="6" rx="1" fill="currentColor"/>
-          <rect x="11.2" y="8" width="2.8" height="10" rx="1" fill="currentColor"/>
-          <rect x="16" y="4.4" width="2.8" height="13.6" rx="1" fill="currentColor"/>
+      <a class="btn btn--icon" id="link-chart" href="#" target="_blank" rel="noopener noreferrer" aria-label="Price chart">
+        <!-- Drawn axes with a line climbing off them, in the same hand as the
+             dashboard icons -->
+        <svg class="btn__icon btn__icon--drawn" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M4.4 3.8C4.2 9 4.6 15.4 4.5 19.6C9 19.8 15.2 19.4 19.8 19.7"/>
+          <path d="M7.4 16C9.2 13.4 10.3 14.8 11.9 11.5C13.3 8.9 15.5 10.3 18.7 6.3"/>
+          <path d="M15.4 6C16.7 6.1 17.8 6.1 18.9 6.1C18.8 7.2 18.8 8.2 18.8 9.3"/>
         </svg>
-        <span>Chart</span>
       </a>
 
       <div class="ca-wrap">
@@ -270,7 +275,7 @@
 
 <!-- ?v= is the cache buster: bump BUILD in both files on every deploy,
      or a CDN will keep serving the previous config.js and app.js. -->
-<script src="config.js?v=2026-08-29.20"></script>
-<script src="assets/js/app.js?v=2026-08-29.20"></script>
+<script src="config.js?v=2026-08-29.21"></script>
+<script src="assets/js/app.js?v=2026-08-29.21"></script>
 </body>
 </html>
