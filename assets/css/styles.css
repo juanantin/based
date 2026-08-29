@@ -452,8 +452,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Both lockups have the resolution to run large — 550×112 and 800×261 — so
-   they are sized by height and left to keep their own ratios. */
+   they are sized by height and left to keep their own ratios. The
+   Stonks.Exchange bar is much the wider of the two, which makes it read
+   smaller at a matched height, so it gets a little more. */
 .eco__logo { height: 54px; width: auto; }
+.eco__logo--stonks { height: 66px; }
 
 .eco__rule {
   width: 2.5px;
@@ -548,6 +551,7 @@ a { color: inherit; text-decoration: none; }
   .eco__rule { width: auto; height: 2.5px; min-height: 0; justify-self: stretch; }
   .eco__kicker { font-size: 12.5px; }
   .eco__logo { height: 40px; }
+  .eco__logo--stonks { height: 48px; }
 }
 
 /* Small phones: the row still holds brand + three buttons, so both sides give
