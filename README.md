@@ -242,10 +242,14 @@ the page falls back to `execCommand` elsewhere.)
   the icon links in `index.html` so browsers drop the cached mark.
   `images/logo.png` came from the same source and is kept unused, in case the
   mark ever returns to the link bar.
-- `images/stonkex_header.mp4` is the source clip stripped of its audio track and
-  re-encoded (2.2MB → 627KB). It is **768×384**, so it is upscaled roughly 2.5× on a
-  desktop retina screen and looks soft there — re-export at 1536×768 or larger and
-  drop it in if you want it crisp. `images/stonkex_header.png` is kept only as the
-  Open Graph share image.
+- `images/based_header.mp4` is the hero clip stripped of its audio track and
+  re-encoded (1.7MB → 530KB); `images/based_header_poster.webp` is its own first
+  frame, so poster → playback is seamless. Regenerate the poster whenever the clip
+  changes. The clip is **800×368**, so it is upscaled roughly 2.4× on a desktop
+  retina screen and looks soft there — re-export at 1600×736 or larger and drop it
+  in if you want it crisp; the hero's `aspect-ratio` in `assets/css/styles.css`
+  and the `width`/`height` on the `<video>` both encode that 800×368 ratio.
+  The previous `images/stonkex_header.mp4` and its poster are kept unused, and
+  `images/stonkex_header.png` is still the Open Graph share image.
 - On mobile the hero runs edge to edge, the dashboard drops to two tiles per row, and
   the ecosystem blocks centre. Tested at 390px wide with no horizontal overflow.
