@@ -8,35 +8,39 @@ window.STONKEX_CONFIG = {
   /* Build stamp. Shown in the ?debug=1 panel, so you can confirm which version
      a browser actually has rather than guessing at a cache. Bump it together
      with the ?v= on the script tags in index.html whenever you deploy. */
-  version: '2026-08-29.19',
+  version: '2026-08-29.20',
 
   /* ---- Token ---------------------------------------------------------- */
 
   // $BASED on Base — the token people buy, and the one the CA button copies.
-  // PLACEHOLDER until the real address exists. Nothing on-chain answers for it,
-  // so every live figure below reads "—" until it is replaced.
-  contractAddress: '0x8357495749857457',
+  contractAddress: '0x594d5833FdcE9217BaE8bdaDCF371Ee0AcbCcD96',
 
-  // $STONKEX, the reward token — confirmed as the `quote` side of this token's
-  // pair in the /api/coins listing, where the same address is "The Stonks
-  // Exchange" (STONKEX). Used to price "total distributed" in USD when the
-  // rewards source doesn't already give a USD figure.
-  rewardTokenAddress: '0x5ab000ff9B9FfE0349CE5ffA5fD86f217C3680F5',
+  // The reward token — the one holders are paid in. Used to price "total
+  // distributed" in USD when the rewards source doesn't already give a USD
+  // figure. Null until $COIN's address is known: the previous value was
+  // $STONKEX's, which would price $BASED's rewards off the wrong token.
+  rewardTokenAddress: null,
 
   chain: 'base',    // DexScreener chain slug
   chainId: 8453,    // EVM chain id
 
-  /* Related contracts, from thestonks.exchange's own APIs. Recorded here for
-     reference — nothing reads them yet.
-       pool         the STONKEXSTR/STONKEX pool           (/api/coins)
-       feeLocker    where trading fees accrue             (/api/coins)
-       rewardsIndex the "rewards" routing target for this
-                    token, i.e. the distributor           (/api/fee-routing) */
+  /* Related contracts.
+       pool         the trading pair — DexScreener is asked about THIS pool
+                    first, and only falls back to searching by token address
+       rewardPool   the reward token's own pair, used to price it
+       feeLocker    where trading fees accrue
+       rewardsIndex the distributor holders are paid from
+
+     All null until $BASED's own are known. They previously held $STONKEXSTR's,
+     and `pool` is read on every load — so leaving it would have kept the
+     dashboard reporting the old token's market cap, liquidity and volume no
+     matter which contract address sits above. With these null, DexScreener is
+     searched by the contract address instead, which is correct if slower. */
   contracts: {
-    pool: '0x550b95fcb0e309c552FAe9670b1A514D443CA463',
-    rewardPool: '0x7692AcC1CDd771D09EbCae3663e1843b2911BEC7',  // STONKEX/WETH
-    feeLocker: '0x71D1D363176723f85d98B8B430DF33cde89f0A7f',
-    rewardsIndex: '0xf01a4dabfd54d1A6a1812a95F7151e8DA851DE2E',
+    pool: null,
+    rewardPool: null,
+    feeLocker: null,
+    rewardsIndex: null,
   },
 
   /* ---- Links ---------------------------------------------------------- */
@@ -130,7 +134,16 @@ window.STONKEX_CONFIG = {
        The endpoint must send permissive CORS headers, since the browser calls
        it directly. If it doesn't, proxy it from your own domain.              */
     rewards: {
-      enabled: true,
+      /* OFF: data/rewards.json still holds $STONKEXSTR's figures, and this
+         source is merged LAST, so it overrides everything DexScreener reports
+         for $BASED. Fees and distributed therefore read "—" for now, which is
+         the honest answer, rather than another token's totals.
+
+         To switch it back on: repoint scripts/index-rewards.mjs (see
+         worker/src/config.js — TOKENS, CONTRACTS and START_BLOCK) at $BASED's
+         reward token and distributor, let it rewrite data/rewards.json, then
+         set this back to true. */
+      enabled: false,
       // A string, or an array of them — the first source with a number for a
       // metric wins, so put live endpoints in front of the committed file.
       //

@@ -3,10 +3,6 @@
 Single-page site for **BASED COIN** — buy `$BASED`, get `$COIN`.
 1B total supply on Base chain.
 
-> **`config.js` carries a placeholder contract address** (`0x8357495749857457`)
-> until the real one exists. Nothing on-chain answers for it, so every live
-> figure on the dashboard reads `—` and the page shows "Live data unavailable".
-> Drop the real address into `contractAddress` and the tiles fill themselves in.
 
 Static HTML/CSS/JS. No build step, no dependencies, no framework.
 
@@ -54,15 +50,22 @@ renders as `—` rather than as a number that isn't real.
 
 | | |
 |---|---|
-| `$STONKEXSTR` | `0x80081d759E5e0154fB15D5ee8De5085D89E3dCcC` |
-| `$STONKEX` (reward token) | `0x5ab000ff9B9FfE0349CE5ffA5fD86f217C3680F5` |
-| Pool | `0x550b95fcb0e309c552FAe9670b1A514D443CA463` |
-| Fee locker | `0x71D1D363176723f85d98B8B430DF33cde89f0A7f` |
-| Rewards index | `0xf01a4dabfd54d1A6a1812a95F7151e8DA851DE2E` |
+| `$BASED` | `0x594d5833FdcE9217BaE8bdaDCF371Ee0AcbCcD96` |
+| `$COIN` (reward token) | *not set* |
+| Pool | *not set* |
+| Fee locker | *not set* |
+| Rewards index | *not set* |
 
-The reward token is the `quote` side of this token's pair in `/api/coins`, where
-the same address is listed as "The Stonks Exchange" (STONKEX) — note a second,
-earlier token also carries that name, so match on the address, not the symbol.
+Only the token address is known so far. The rest are `null` in `config.js` on
+purpose: they previously held `$STONKEXSTR`'s, and `contracts.pool` is read on
+every load — DexScreener is asked about that pool before it searches by token
+address, so a stale pool silently reports the wrong token's market cap,
+liquidity and volume. Fill them in as they become known.
+
+The same is true of `data/rewards.json`: it still holds `$STONKEXSTR` totals, so
+`sources.rewards` is switched off until `scripts/index-rewards.mjs` is repointed
+(`worker/src/config.js` — `TOKENS`, `CONTRACTS`, `START_BLOCK`). Until then
+"total fees collected" and "total $COIN distributed" read `—`.
 
 ### Market data — DexScreener
 
