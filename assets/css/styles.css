@@ -123,6 +123,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink);
   text-transform: uppercase;
   letter-spacing: .04em;
+  white-space: nowrap;   /* a wrapped address would double the button's height */
   cursor: pointer;
   transition: transform .16s ease, box-shadow .16s ease;
 }
@@ -469,21 +470,43 @@ a { color: inherit; text-decoration: none; }
    ========================================================================== */
 
 @media (max-width: 900px) {
-  .topbar__inner { flex-direction: column; align-items: center; gap: 12px; }
-  .topbar__links { justify-content: center; }
+  /* The bar keeps its two-sided shape all the way down: brand hard left,
+     the three buttons on one line to the right of it. Everything below is
+     what has to give for that row to fit a phone. */
+  .topbar__inner { align-items: center; gap: 10px; }
+  .topbar__links { flex-wrap: nowrap; gap: 8px; }
   .stats { gap: 14px; }
   .stat { padding: 16px 18px; gap: 14px; }
   .stat__icon svg, .stat__icon--logo img { width: 46px; height: 46px; }
 }
 
+@media (max-width: 760px) {
+  .brand__mark { width: 38px; height: 38px; }
+  .brand__word { font-size: 18px; }
+  .btn { min-height: 38px; padding: 0 12px; font-size: 13px; gap: 7px; }
+  .btn__icon { width: 16px; height: 16px; }
+  .btn--icon { padding: 0 12px; }
+}
+
 @media (max-width: 620px) {
   .topbar { padding: 14px 14px 4px; }
-  .brand__mark { width: 40px; height: 40px; }
-  .brand__word { font-size: 19px; }
+  .brand { gap: 8px; }
+  .brand__mark { width: 34px; height: 34px; }
+  .brand__word { font-size: 15px; }
 
-  .btn { min-height: 40px; padding: 0 13px; font-size: 13.5px; gap: 7px; }
-  .btn__icon { width: 16px; height: 16px; }
-  .x-handle { font-size: 11.5px; }
+  .btn { min-height: 34px; padding: 0 9px; font-size: 12px; gap: 6px; letter-spacing: .02em; }
+  .btn--icon { padding: 0 10px; }
+  .btn__icon { width: 15px; height: 15px; }
+  .btn__icon--copy { width: 14px; height: 14px; }
+  .btn__addr { font-size: 12px; }
+
+  /* The handle is wider than the button it captions, so on a phone it would
+     set the width of the whole X column and push the row off screen. The
+     button keeps its accessible name either way. */
+  .x-handle { display: none; }
+
+  /* "CA:" is the first thing to go — the address reads as one regardless */
+  .btn__tag { display: none; }
 
   /* The hero drops its side padding and runs edge to edge, slightly
      overscanning the banner's own margins so it reads as large as it can. */
@@ -513,6 +536,22 @@ a { color: inherit; text-decoration: none; }
   .eco__rule { width: auto; height: 2.5px; min-height: 0; justify-self: stretch; }
   .eco__kicker { font-size: 12.5px; }
   .eco__logo { height: 40px; }
+}
+
+/* Small phones: the row still holds brand + three buttons, so both sides give
+   up a few more pixels. Measured to fit at 320px. */
+@media (max-width: 420px) {
+  .topbar { padding: 12px 10px 4px; }
+  .brand { gap: 6px; }
+  .brand__mark { width: 30px; height: 30px; }
+  .brand__word { font-size: 13.5px; }
+
+  .topbar__links { gap: 5px; }
+  .btn { min-height: 32px; padding: 0 8px; font-size: 11.5px; gap: 5px; }
+  .btn--icon { padding: 0 9px; }
+  .btn__icon { width: 14px; height: 14px; }
+  .btn__icon--copy { width: 13px; height: 13px; }
+  .btn__addr { font-size: 11.5px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
