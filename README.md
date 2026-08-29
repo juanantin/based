@@ -235,9 +235,11 @@ the page falls back to `execCommand` elsewhere.)
   `images/stonkex_button.png` has had that wordmark recoloured dark — the icon and
   the blue `.EXCHANGE` are untouched. Swap in an official light-background lockup
   if Stonks.Exchange publishes one.
-- `favicon.png` and `apple-touch-icon.png` are generated from
-  `images/stkstr_icon.png`. Regenerate them together if the mark changes
-  (apple-touch-icon is flattened onto white — iOS renders transparency as black).
+- `favicon.ico`, `favicon.png`, `apple-touch-icon.png` and the two
+  `icon-*.png` manifest icons are generated from `images/based_logo.png`.
+  Regenerate them together if the mark changes (apple-touch-icon is flattened
+  onto white — iOS renders transparency as black), and bump the `?v=` query on
+  the icon links in `index.html` so browsers drop the cached mark.
   `images/logo.png` came from the same source and is kept unused, in case the
   mark ever returns to the link bar.
 - `images/stonkex_header.mp4` is the source clip stripped of its audio track and

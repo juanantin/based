@@ -23,9 +23,11 @@ below is what is still token-specific; the rest of the code reads from it.
 
 ## 2. Branding
 
-- `images/` — header video + its poster frame, and `stkstr_icon.png`.
-  Regenerate `favicon.ico`, `images/favicon.png` and `images/apple-touch-icon.png`
-  from the icon (apple-touch-icon must be flattened onto white).
+- `images/` — header video + its poster frame, and `based_logo.png`.
+  Regenerate `favicon.ico`, `images/favicon.png`, `images/apple-touch-icon.png`
+  and `images/icon-192.png` / `images/icon-512.png` from the icon
+  (apple-touch-icon must be flattened onto white), then bump the `?v=` query on
+  the icon links in `index.html`.
 - `index.html` — `<title>`, the description and OG/Twitter meta, the dashboard
   headline and sub-line, and the tile labels naming the reward token.
 - `assets/css/styles.css` — only if the palette changes.
