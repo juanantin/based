@@ -1,6 +1,6 @@
 # Setting this up for a new token
 
-A copy of the STONKEX Strategy site with the indexed figures cleared. Everything
+A copy of the BASED COIN site with the indexed figures cleared. Everything
 below is what is still token-specific; the rest of the code reads from it.
 
 ## 1. Addresses
@@ -28,8 +28,9 @@ below is what is still token-specific; the rest of the code reads from it.
   and `images/icon-192.png` / `images/icon-512.png` from the icon
   (apple-touch-icon must be flattened onto white), then bump the `?v=` query on
   the icon links in `index.html`.
-- `index.html` — `<title>`, the description and OG/Twitter meta, the dashboard
-  headline and sub-line, and the tile labels naming the reward token.
+- `index.html` — `<title>`, the description and OG/Twitter meta, the brand
+  wordmark in the top bar, the `@handle` caption under the X button, and the
+  card labels naming the reward token.
 - `assets/css/styles.css` — only if the palette changes.
 - The two ecosystem lockups at the bottom stay as they are if the token launched
   on the same platform.

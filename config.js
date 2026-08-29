@@ -8,12 +8,14 @@ window.STONKEX_CONFIG = {
   /* Build stamp. Shown in the ?debug=1 panel, so you can confirm which version
      a browser actually has rather than guessing at a cache. Bump it together
      with the ?v= on the script tags in index.html whenever you deploy. */
-  version: '2026-08-29.13',
+  version: '2026-08-29.17',
 
   /* ---- Token ---------------------------------------------------------- */
 
-  // $STONKEXSTR on Base — the token people buy, and the one the CA button copies.
-  contractAddress: '0x80081d759E5e0154fB15D5ee8De5085D89E3dCcC',
+  // $BASED on Base — the token people buy, and the one the CA button copies.
+  // PLACEHOLDER until the real address exists. Nothing on-chain answers for it,
+  // so every live figure below reads "—" until it is replaced.
+  contractAddress: '0x8357495749857457',
 
   // $STONKEX, the reward token — confirmed as the `quote` side of this token's
   // pair in the /api/coins listing, where the same address is "The Stonks
@@ -40,7 +42,7 @@ window.STONKEX_CONFIG = {
   /* ---- Links ---------------------------------------------------------- */
 
   links: {
-    x: 'https://x.com/Stonks_Exchange',
+    x: 'https://x.com/basedcoin_base',
 
     // Leave null to auto-build a DexScreener link from the contract address.
     chart: null,

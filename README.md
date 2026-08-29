@@ -1,7 +1,12 @@
-# STONKEX Strategy
+# BASED COIN
 
-Single-page site for **Stonk Exchange Strategy** — buy `$STONKEXSTR`, get `$STONKEX`.
+Single-page site for **BASED COIN** — buy `$BASED`, get `$COIN`.
 1B total supply on Base chain.
+
+> **`config.js` carries a placeholder contract address** (`0x8357495749857457`)
+> until the real one exists. Nothing on-chain answers for it, so every live
+> figure on the dashboard reads `—` and the page shows "Live data unavailable".
+> Drop the real address into `contractAddress` and the tiles fill themselves in.
 
 Static HTML/CSS/JS. No build step, no dependencies, no framework.
 
@@ -15,17 +20,20 @@ images/               branding
 
 ## What's on the page
 
-- **Link bar** — X, chart, and a contract-address button that copies the CA to the
-  clipboard and flashes a `COPIED!` confirmation.
-- **Hero** — the animated STONKEX Strategy banner, looping silently. The poster is
+- **Top bar** — the brand lockup on the left; on the right an X button (its
+  `@handle` sits underneath as a caption), a chart button, and a contract-address
+  button that copies the CA to the clipboard and flashes a `COPIED!` confirmation.
+- **Hero** — the animated BASED COIN banner, looping silently. The poster is
   the clip's own first frame, so poster → playback is seamless. Viewers with
   `prefers-reduced-motion: reduce` get the poster as a still and the video never
   downloads.
-- **Dashboard** — six live tiles: total `$STONKEX` distributed (tokens plus its
-  USD value), total fees collected (USD plus the same figure in `$STONKEX`),
-  total holders, market cap, liquidity and 24h volume. Values blink a `…`
-  placeholder until the first load resolves.
-- **Ecosystem** — the [The Stonks Exchange](https://www.thestonks.exchange/) and
+- **Dashboard** — six live cards on a pale blue band, opened and closed by a
+  drawn wave: total fees collected (in `$BASED`, with the USD figure beneath),
+  total `$COIN` distributed (tokens plus USD), total holders, market cap,
+  liquidity and 24h volume. Each card is a drawn outline icon beside the figure.
+  Values blink a `…` placeholder until the first load resolves.
+- **Ecosystem** — a dashed panel holding the
+  [The Stonks Exchange](https://www.thestonks.exchange/) and
   [Stockify](https://www.stockify.finance/) lockups, each one the link itself.
 
 ## Data sources
@@ -230,6 +238,14 @@ the page falls back to `execCommand` elsewhere.)
 ## Notes
 
 - Light theme only, by design — the brand artwork is built for a white ground.
+- The whole page is hand-lettered, to sit with the banner artwork:
+  **Gloria Hallelujah** for display type (the wordmark, the DASHBOARD title) and
+  **Architects Daughter** for everything else, both from Google Fonts. They are
+  single-weight faces, so emphasis comes from size and colour — setting
+  `font-weight: bold` on them buys a synthesised smear, not a bolder face.
+- The band's top and bottom edges are one drawn `<svg>` wave each. They stretch
+  with `preserveAspectRatio="none"`, so their stroke uses
+  `vector-effect: non-scaling-stroke` to keep an even line at any width.
 - Both ecosystem lockups sit on the same white plate at a matched size. The
   Stonks.Exchange wordmark shipped near-white (built for a dark background), so
   `images/stonkex_button.png` has had that wordmark recoloured dark — the icon and
