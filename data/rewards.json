@@ -1,0 +1,22 @@
+{
+  "__doc": [
+    "Fees collected and reward tokens distributed, for the dashboard's first two",
+    "cards. No explorer knows these \u2014 they are protocol figures \u2014 so this file is",
+    "the simplest way to feed them: same-origin, no CORS, no infrastructure.",
+    "",
+    "EMPTY ON PURPOSE. Nulls render as em dashes on the page. Either fill them in",
+    "by hand, or point scripts/index-rewards.mjs at your contracts and let the",
+    "'Index rewards' workflow rewrite this file on a schedule.",
+    "",
+    "Keys are plain numbers, not strings, and not pre-formatted."
+  ],
+  "totalFeesCollected": null,
+  "totalFeesTokens": null,
+  "totalDistributed": null,
+  "totalDistributedUsd": null,
+  "holders": null,
+  "marketCap": null,
+  "liquidity": null,
+  "volume24h": null,
+  "updatedAt": null
+}
