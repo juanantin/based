@@ -22,17 +22,17 @@
     "that isn't real, so it is safe to publish this half-filled."
   ],
   "totalDistributed": 263540.651741236,
-  "totalDistributedUsd": 2777.7184693526274,
-  "totalFeesCollected": 3100.3251726645553,
+  "totalDistributedUsd": 2764.5414367655653,
+  "totalFeesCollected": 3085.6177477467913,
   "totalFeesTokens": 294148.4983552709,
-  "holders": 291,
-  "marketCap": 187927,
-  "liquidity": 96146.21,
-  "volume24h": 24843.65,
-  "updatedAt": "2026-09-09T22:47:36.557Z",
+  "holders": 290,
+  "marketCap": 183348,
+  "liquidity": 94080.48,
+  "volume24h": 24574.67,
+  "updatedAt": "2026-09-10T00:38:45.300Z",
   "meta": {
     "synced": true,
     "blocksBehind": 0,
-    "kexPriceUsd": 0.01054
+    "kexPriceUsd": 0.01049
   }
 }
