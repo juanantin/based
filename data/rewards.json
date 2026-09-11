@@ -21,18 +21,18 @@
     "A field left null shows as an em dash on the site rather than a number",
     "that isn't real, so it is safe to publish this half-filled."
   ],
-  "totalDistributed": 268003.6767904346,
-  "totalDistributedUsd": 2353.340285896806,
-  "totalFeesCollected": 2623.9012282773974,
-  "totalFeesTokens": 298815.7645231064,
-  "holders": 288,
-  "marketCap": 132789,
-  "liquidity": 73077.95,
-  "volume24h": 18178.35,
-  "updatedAt": "2026-09-11T05:05:49.129Z",
+  "totalDistributed": 269844.12423955224,
+  "totalDistributedUsd": 3267.8123445409774,
+  "totalFeesCollected": 3630.90260504553,
+  "totalFeesTokens": 299826.80471061356,
+  "holders": 289,
+  "marketCap": 176376,
+  "liquidity": 97013.83,
+  "volume24h": 11641.47,
+  "updatedAt": "2026-09-11T09:34:18.446Z",
   "meta": {
     "synced": true,
     "blocksBehind": 0,
-    "kexPriceUsd": 0.008781
+    "kexPriceUsd": 0.01211
   }
 }
