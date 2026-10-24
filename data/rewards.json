@@ -29,10 +29,10 @@
   "marketCap": 30043,
   "liquidity": 20683.8,
   "volume24h": 54.54,
-  "updatedAt": "2026-10-24T17:01:26.399Z",
+  "updatedAt": "2026-10-24T19:23:37.513Z",
   "meta": {
     "synced": false,
-    "blocksBehind": 837541,
-    "kexPriceUsd": 0.003132
+    "blocksBehind": 841806,
+    "kexPriceUsd": 0.003229
   }
 }
